@@ -67,7 +67,7 @@ function getMetrics() {
       metric("Minutes old: ", s / 60, "Total minutes elapsed since birth date."),
       metric("Hours old: ", s / 3600, "Total hours elapsed since birth date."),
       metric("Days old: ", d, "Total days elapsed since birth date."),
-      metric("Zeptoseconds old: ", s * 10^21, "Total zeptoseconds elapsed since birth date."),
+      metric("Zeptoseconds old: ", s * 10**21, "Total zeptoseconds elapsed since birth date."),
 
       metric("Estimated heartbeats old: ", s * (70 / 60), "Estimated from 70 bpm."),
       metric("Estimated breaths old: ", s * (15 / 60), "Estimated from 15 breaths per minute."),
@@ -80,7 +80,7 @@ function getMetrics() {
       metric("Estimated global emails old: ", s * 4000000, "Very rough estimate."),
 
       {
-        title: "Times you proved you're the best dad ever",
+        title: "Estimated dad jokes old: ",
         displayValue: "OverflowError",
         note: "Value exceeds measurable bounds.",
       }

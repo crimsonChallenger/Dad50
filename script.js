@@ -24,10 +24,11 @@ function formatNumber(n) {
   const absN = Math.abs(n);
 
   if (absN < 1000) {
-    return n.toLocaleString(undefined, {
-      maximumFractionDigits: 0
-    });
-  }
+  return n.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
 
   for (const [value, name] of NUMBER_NAMES) {
     if (absN >= value) {
@@ -55,32 +56,82 @@ function metric(title, value, note) {
 
 // ===== METRICS =====
 function getMetrics() {
-  const s = secondsAlive();
-  const d = s / 86400;
+  const s = secondsAlive()
+  const m = s / 60; // minutes old
+  const h = s / 3600; // hours old
+  const d = s / 86400; // days old
+  const w = s / 604800; // weeks old
+  const mo = s / 2629800; // months old
+  const y = s / 31557600; // years old
+
+  const ms = s * 1e3; // milliseconds old
+  const us = s * 1e6; // microseconds old
+  const ns = s * 1e9; // nanoseconds old
+  const ps = s * 1e12; // picoseconds old
+  const fs = s * 1e15; // femtoseconds old
+  const as = s * 1e18; // attoseconds old
+  const zs = s * 1e21; // zeptoseconds old
 
   return {
     generatedAt: new Date().toISOString(),
     metrics: [
-      
-      metric("Years old: ", d / 365, "Total years elapsed since birth date."),
-      metric("Seconds old:", s, "Total seconds elapsed since birth date."),
-      metric("Minutes old: ", s / 60, "Total minutes elapsed since birth date."),
-      metric("Hours old: ", s / 3600, "Total hours elapsed since birth date."),
+      metric("Millennia old: ", y / 1000, "Total millennia elapsed since birth date."),
+      metric("Centuries old: ", y / 100, "Total centuries elapsed since birth date."),
+      metric("Half-centuries old: ", y / 50, "Total half-centuries elapsed since birth date."),
+      metric("Scores old: ", y / 20, "Total scores elapsed since birth date. 1 score = 20 years."),
+      metric("Decades old: ", y / 10, "Total decades elapsed since birth date."),
+      metric("Years old: ", y, "Total years elapsed since birth date. Uses 365.25 days/year to account for leap years."),
+      metric("Months old: ", mo, "Total months elapsed since birth date. Uses average month length of 30.44 days."),
+      metric("Weeks old: ", w, "Total weeks elapsed since birth date."),
+      metric("Leap years old: ", y / 4, "Estimate of leap years elapsed using 1 leap year every 4 years."),
       metric("Days old: ", d, "Total days elapsed since birth date."),
-      metric("Zeptoseconds old: ", s * 10**21, "Total zeptoseconds elapsed since birth date."),
+      metric("Hours old: ", h, "Total hours elapsed since birth date."),
+      metric("Minutes old: ", m, "Total minutes elapsed since birth date."),
+      metric("Seconds old: ", s, "Total seconds elapsed since birth date."),
+      metric("Milliseconds old: ", ms, "Total milliseconds elapsed since birth date."),
+      metric("Microseconds old: ", us, "Total microseconds elapsed since birth date."),
+      metric("Nanoseconds old: ", ns, "Total nanoseconds elapsed since birth date."),
+      metric("Picoseconds old: ", ps, "Total picoseconds elapsed since birth date."),
+      metric("Femtoseconds old: ", fs, "Total femtoseconds elapsed since birth date."),
+      metric("Attoseconds old: ", as, "Total attoseconds elapsed since birth date."),
+      metric("Zeptoseconds old: ", zs, "Total zeptoseconds elapsed since birth date."),
+      metric("Planck times old: ", s / 5.39e-44, "Calculated using the Planck time of 5.39 * 10^-44 seconds."),
 
-      metric("Estimated heartbeats old: ", s * (70 / 60), "Estimated from 70 bpm."),
-      metric("Estimated breaths old: ", s * (15 / 60), "Estimated from 15 breaths per minute."),
-      metric("Estimated blinks old: ", s * (15 / 60), "Estimated from 15 blinks per minute."),
-      metric("Estimated meals old: ", d * 3, "Estimated from 3 meals per day."),
+      metric("Heartbeats old: ", m * 70, "Estimated using an average resting heart rate of 70 beats per minute."),
+      metric("Breaths old: ", m * 15, "Estimated using an average breathing rate of 15 breaths per minute."),
+      metric("Blinks old: ", m * 15, "Estimated using an average blink rate of 15 blinks per minute."),
+      metric("Meals old: ", d * 3, "Estimated using 3 meals per day."),
 
-      metric("Miles Earth traveled around the Sun old: ", s * 18.5, "Earth moves ~18.5 miles/sec."),
+      metric("Miles around the Sun old: ", s * 18.5, "Estimated using Earth's orbital speed of ~18.5 miles per second."),
+      metric("Earth rotations old: ", d, "Estimated using 1 Earth rotation every 24 hours."),
 
-      metric("Estimated global Google searches old: ", s * 99000, "estimated from ~99k/sec."),
-      metric("Estimated global emails old: ", s * 4000000, "Very rough estimate."),
+      metric("Google searches old: ", s * 99000, "Estimated using ~99,000 Google searches every second."),
+      metric("Emails old: ", s * 4000000, "Estimated using ~4 million emails sent every second."),
+      metric("YouTube hours old: ", m * 500, "Estimated using ~500 hours of YouTube content uploaded every minute."),
+      metric("Terabytes of data old: ", s * 400, "Estimated using ~400 terabytes of data generated every second."),
+      metric("Memes old: ", s * 250, "Estimated using ~250 memes created every second."),
+      metric("Windows updates old: ", d / 7, "Estimated using 1 Windows update every week."),
+      metric("Forgotten passwords old: ", s * 200, "Estimated using ~200 forgotten passwords every second."),
+      metric("Software bugs old: ", s * 5000, "Estimated using ~5,000 software bugs introduced every second."),
+      metric("Coffee cups old: ", s * 28000, "Estimated using ~28,000 cups of coffee consumed every second worldwide."),
+      metric("Lines of code old: ", s * 1000000, "Estimated using ~1 million lines of code written every second globally."),
+      metric("Text messages old: ", s * 8000000, "Estimated using ~8 million text messages sent every second."),
+      metric("TikToks old: ", s * 1500, "Estimated using ~1,500 TikToks uploaded every second."),
+
+      metric("Songs released old: ", d * 120000, "Estimated using ~120,000 songs released every day globally."),
+      metric("Movies released old: ", d * 10000, "Estimated using ~10,000 movies released every day worldwide."),
+      metric("Books published old: ", d * 6000, "Estimated using ~6,000 books published every day globally."),
+
+      metric("Tech problems solved old: ", s * 0.25, "Estimated using 1 tech problem solved every 4 seconds."),
+      metric("\"Try turning it off and back on?\"s old: ", s * 12, "Estimated using ~12 times said every second globally."),
+      metric("\"Probably the internet\"s old: ", s * 4, "Estimated using ~4 blame-the-WiFi moments every second."),
+      metric("\"Did you save your work?\"s old: ", s * 2, "Estimated using ~2 panic-induced save reminders every second."),
+      metric("\"It worked yesterday\"s old: ", s * 3, "Estimated using ~3 confused troubleshooting moments every second."),
+      metric("\"Have you tried unplugging it?\"s old: ", s * 1.5, "Estimated using ~1.5 unplugging suggestions every second."),
+      metric("\"Why is it doing that?\"s old: ", s * 20, "Estimated using ~20 tech confusion incidents every second."),
 
       {
-        title: "Estimated dad jokes old: ",
+        title: "Family memories old: ",
         displayValue: "OverflowError",
         note: "Value exceeds measurable bounds.",
       }

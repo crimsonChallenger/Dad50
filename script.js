@@ -61,21 +61,23 @@ function getMetrics() {
   return {
     generatedAt: new Date().toISOString(),
     metrics: [
-      metric("Seconds alive", s, "Total runtime in seconds."),
-      metric("Minutes alive", s / 60, "Total runtime in minutes."),
-      metric("Hours alive", s / 3600, "Total runtime in hours."),
-      metric("Days alive", d, "Total days since birth."),
+      
+      metric("Years old: ", d / 365, "Total years elapsed since birth date."),
+      metric("Seconds old:", s, "Total seconds elapsed since birth date."),
+      metric("Minutes old: ", s / 60, "Total minutes elapsed since birth date."),
+      metric("Hours old: ", s / 3600, "Total hours elapsed since birth date."),
+      metric("Days old: ", d, "Total days elapsed since birth date."),
+      metric("Zeptoseconds old: ", s * 10^21, "Total zeptoseconds elapsed since birth date."),
 
-      metric("Estimated heartbeats", s * (70 / 60), "Estimated from 70 bpm."),
-      metric("Estimated breaths", s * (15 / 60), "Estimated from 15 breaths per minute."),
-      metric("Estimated blinks", s * (15 / 60), "Estimated from 15 blinks per minute."),
-      metric("Estimated hours slept", d * 8, "Estimated from 8 hours per day."),
-      metric("Estimated meals eaten", d * 3, "Estimated from 3 meals per day."),
+      metric("Estimated heartbeats old: ", s * (70 / 60), "Estimated from 70 bpm."),
+      metric("Estimated breaths old: ", s * (15 / 60), "Estimated from 15 breaths per minute."),
+      metric("Estimated blinks old: ", s * (15 / 60), "Estimated from 15 blinks per minute."),
+      metric("Estimated meals old: ", d * 3, "Estimated from 3 meals per day."),
 
-      metric("Miles Earth traveled around the Sun", s * 18.5, "Earth moves ~18.5 miles/sec."),
+      metric("Miles Earth traveled around the Sun old: ", s * 18.5, "Earth moves ~18.5 miles/sec."),
 
-      metric("Google searches during your lifetime", s * 99000, "Rough estimate using ~99k/sec."),
-      metric("Emails sent worldwide during your lifetime", s * 4000000, "Very rough estimate."),
+      metric("Estimated global Google searches old: ", s * 99000, "estimated from ~99k/sec."),
+      metric("Estimated global emails old: ", s * 4000000, "Very rough estimate."),
 
       {
         title: "Times you proved you're the best dad ever",

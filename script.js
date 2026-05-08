@@ -24,11 +24,15 @@ function formatNumber(n) {
   const absN = Math.abs(n);
 
   if (absN < 1000) {
-  return n.toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
-}
+    return n.toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  }
+
+  if (absN >= 1e36) {
+    return n.toExponential(2);
+  }
 
   for (const [value, name] of NUMBER_NAMES) {
     if (absN >= value) {
@@ -108,27 +112,14 @@ function getMetrics() {
       metric("Google searches old: ", s * 99000, "Estimated using ~99,000 Google searches every second."),
       metric("Emails old: ", s * 4000000, "Estimated using ~4 million emails sent every second."),
       metric("YouTube hours old: ", m * 500, "Estimated using ~500 hours of YouTube content uploaded every minute."),
-      metric("Terabytes of data old: ", s * 400, "Estimated using ~400 terabytes of data generated every second."),
-      metric("Memes old: ", s * 250, "Estimated using ~250 memes created every second."),
       metric("Windows updates old: ", d / 7, "Estimated using 1 Windows update every week."),
-      metric("Forgotten passwords old: ", s * 200, "Estimated using ~200 forgotten passwords every second."),
-      metric("Software bugs old: ", s * 5000, "Estimated using ~5,000 software bugs introduced every second."),
       metric("Coffee cups old: ", s * 28000, "Estimated using ~28,000 cups of coffee consumed every second worldwide."),
-      metric("Lines of code old: ", s * 1000000, "Estimated using ~1 million lines of code written every second globally."),
       metric("Text messages old: ", s * 8000000, "Estimated using ~8 million text messages sent every second."),
       metric("TikToks old: ", s * 1500, "Estimated using ~1,500 TikToks uploaded every second."),
 
       metric("Songs released old: ", d * 120000, "Estimated using ~120,000 songs released every day globally."),
       metric("Movies released old: ", d * 10000, "Estimated using ~10,000 movies released every day worldwide."),
       metric("Books published old: ", d * 6000, "Estimated using ~6,000 books published every day globally."),
-
-      metric("Tech problems solved old: ", s * 0.25, "Estimated using 1 tech problem solved every 4 seconds."),
-      metric("\"Try turning it off and back on?\"s old: ", s * 12, "Estimated using ~12 times said every second globally."),
-      metric("\"Probably the internet\"s old: ", s * 4, "Estimated using ~4 blame-the-WiFi moments every second."),
-      metric("\"Did you save your work?\"s old: ", s * 2, "Estimated using ~2 panic-induced save reminders every second."),
-      metric("\"It worked yesterday\"s old: ", s * 3, "Estimated using ~3 confused troubleshooting moments every second."),
-      metric("\"Have you tried unplugging it?\"s old: ", s * 1.5, "Estimated using ~1.5 unplugging suggestions every second."),
-      metric("\"Why is it doing that?\"s old: ", s * 20, "Estimated using ~20 tech confusion incidents every second."),
 
       {
         title: "Family memories old: ",

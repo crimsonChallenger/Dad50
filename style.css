@@ -1,0 +1,106 @@
+/* Styles applied to the entire page */
+body {
+  /* Remove the browser's default margin around the edges */
+  margin: 0;
+
+  /* Add space between the browser edges and the content */
+  padding: 32px;
+
+  /* Dark background to give it a clean "tech dashboard" feel */
+  background: #0f1117;
+
+  /* Default text color for everything on the page */
+  color: #f5f5f5;
+
+  /* Use the operating system's default UI font for a modern look */
+  font-family: system-ui, sans-serif;
+}
+
+/* Main page title: "50 (ish) Ways You're 50" */
+h1 {
+  /* Center the title horizontally */
+  text-align: center;
+
+  /* Make it large and prominent */
+  font-size: 3rem;
+
+  /* Space below the title before the cards begin */
+  margin-bottom: 40px;
+}
+
+/* Container that holds all metric cards */
+.metrics {
+  /* Turn the container into a responsive grid */
+  display: grid;
+
+  /* Automatically create as many columns as fit.
+     Each card is at least 260px wide, but can grow to fill extra space. */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  /* Space between cards */
+  gap: 18px;
+
+  /* Prevent the grid from becoming too wide on large monitors */
+  max-width: 1200px;
+
+  /* Center the entire grid horizontally */
+  margin: 0 auto;
+}
+
+/* Individual metric card */
+.metric {
+  /* Slightly lighter background than the page */
+  background: #181b24;
+
+  /* Rounded corners */
+  border-radius: 18px;
+
+  /* Space inside the card between the border and the content */
+  padding: 20px;
+
+  /* Thin border to separate the card from the background */
+  border: 1px solid #2a2f3d;
+
+  /* Soft shadow for depth */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Metric title, e.g. "Years old:" */
+.metric h2 {
+  /* Slightly muted color so the number stands out more */
+  color: #b9c0d0;
+
+  /* Remove default margins and add a little space below */
+  margin: 0 0 12px;
+
+  /* Moderate size */
+  font-size: 1rem;
+}
+
+/* The main number, e.g. "50.00" */
+.metric .value {
+  /* Large and bold to make it the focal point */
+  font-size: 2rem;
+  font-weight: 800;
+
+  /* Space below before the note */
+  margin-bottom: 12px;
+
+  /* Allow very long numbers to wrap if needed */
+  word-break: break-word;
+}
+
+/* Explanatory note at the bottom of each card */
+.metric .note {
+  /* Smaller text */
+  font-size: 0.9rem;
+
+  /* Subtle gray-blue color */
+  color: #8f98aa;
+
+  /* Increase line spacing for readability */
+  line-height: 1.4;
+
+  /* Remove default paragraph margins */
+  margin: 0;
+}

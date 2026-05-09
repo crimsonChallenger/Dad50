@@ -101,6 +101,16 @@ function getMetrics() {
       metric("Zeptoseconds old: ", zs, "Total zeptoseconds elapsed since birth date."),
       metric("Planck times old: ", s / 5.39e-44, "Calculated using the Planck time of 5.39 * 10^-44 seconds."),
 
+      metric("Dog years old: ", y * 7, "Estimated using one human year = 7 dog years."),
+      metric("Cat years old: ", y * 6, "Estimated using one human year = 6 cat years."),
+
+      metric("Chinese zodiac cycles old: ", y / 12, "Calculated using the 12-year Chinese zodiac cycle. "),
+      metric("Presidential terms old: ", y / 4, "Calculated using the 4-year U.S. presidential term."),
+      metric("Olympiads old: ", y / 4, "Calculated using the 4-year Olympic cycle."),
+      metric("Christmases old: ", y, "Estimated using one Christmas celebration every year."),
+      metric("Birthdays old: ", y, "Estimated using one birthday every year."),
+      metric("New Years old: ", y, "Estimated using one New Year every year."),
+
       metric("Heartbeats old: ", m * 70, "Estimated using an average resting heart rate of 70 beats per minute."),
       metric("Breaths old: ", m * 15, "Estimated using an average breathing rate of 15 breaths per minute."),
       metric("Blinks old: ", m * 15, "Estimated using an average blink rate of 15 blinks per minute."),
@@ -108,6 +118,10 @@ function getMetrics() {
 
       metric("Miles around the Sun old: ", s * 18.5, "Estimated using Earth's orbital speed of ~18.5 miles per second."),
       metric("Earth rotations old: ", d, "Estimated using 1 Earth rotation every 24 hours."),
+      metric("Moon cycles old: ", d / 29.53, "It takes the moon about 29.53 days from new moon to new moon. "),
+      metric("Sunsets old: ", d, "Estimated using 1 sunset every day."),
+      metric("Seasons old: ", y * 4, "Estimated using 4 seasons every year."),
+      metric("Trips around the Sun old: ", y, "Calculated using one full orbit around the Sun per year."),
 
       metric("Google searches old: ", s * 99000, "Estimated using ~99,000 Google searches every second."),
       metric("Emails old: ", s * 4000000, "Estimated using ~4 million emails sent every second."),

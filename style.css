@@ -104,3 +104,18 @@ h1 {
   /* Remove default paragraph margins */
   margin: 0;
 }
+
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 24px;
+  }
+
+  .metric .value {
+    font-size: 1.6rem;
+  }
+}
